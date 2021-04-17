@@ -1,0 +1,16 @@
+{
+  "name": "book-notes",
+  "version": "1.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/dalenguyen/book-notes.git",
+  "author": "Dale Nguyen <dungnq@itbox4vn.com>",
+  "license": "MIT",
+  "scripts": {
+    "publish": "gitbook build && gulp publish"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-load-plugins": "^2.0.6"
+  }
+}
