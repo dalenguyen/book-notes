@@ -1,9 +1,3 @@
-# book-notes
+# Book Notes
 
-## Build docs
-
-```
-gitbook build
-cp -R _book/* .
-git clean -fx _book
-```
+Just some notes that I took while reading books.
