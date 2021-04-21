@@ -1,3 +1,3 @@
 # Summary
 
-- [Book 1](book1/chapter1.md)
+- [Web Performance Fundamentals](web-performance-fundamentals.md)

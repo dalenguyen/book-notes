@@ -6,6 +6,7 @@
   "author": "Dale Nguyen <dungnq@itbox4vn.com>",
   "license": "MIT",
   "scripts": {
+    "start": "gitbook serve",
     "publish": "gitbook build && gulp publish"
   },
   "dependencies": {
