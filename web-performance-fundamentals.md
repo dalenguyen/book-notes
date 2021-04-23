@@ -25,3 +25,9 @@ More search ranking & more people visiting your site.
   - FID - First Input Delay ( < 100ms ) - The browser time delay between the user's first click and execution of application code -> **Don't load too much**
 
 Use [Lighthouse](https://developers.google.com/web/tools/lighthouse) from running performance report
+
+## Where Do We Measure From?
+
+[Chrome UX Report Compare Tool](https://crux-compare.netlify.app/)
+
+Field data is different from Lab data. What you see on your machine will be different from other people on the internet.

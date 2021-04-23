@@ -1,0 +1,32 @@
+name: Push to Main Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Start Publishing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Install Gitbook CLI
+        run: sudo npm install -g gitbook-cli --unsafe-perm
+
+      - name: Install Dependencies
+        run: sudo npm install
+
+      - name: Publish gitbook to github pages
+        run: |
+          echo $(node -p "require('./package.json').version") | sudo npm run publish
