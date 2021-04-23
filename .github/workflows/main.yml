@@ -23,7 +23,5 @@ jobs:
         run: sudo npm install
 
       - name: Publish gitbook to github pages
-        working-directory: functions
-        # run: echo $(node -p "require('./package.json').version") | sudo npm run publish
         run: |
           echo $(node -p "require('./package.json').version") | sudo npm run publish
