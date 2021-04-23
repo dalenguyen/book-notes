@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          ref: maiin
+          ref: main
 
       - name: Install Gitbook CLI
         run: sudo npm install -g gitbook-cli --unsafe-perm
@@ -24,4 +24,4 @@ jobs:
 
       - name: Publish gitbook to github pages
         working-directory: functions
-        run: sudo npm run publish
+        run: echo $(node -p "require('./package.json').version") | sudo npm run publish
