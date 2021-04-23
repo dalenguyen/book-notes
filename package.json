@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gitbook serve",
-    "prepublish": "gitbook build",
+    "build": "gitbook build",
     "publish": "gulp publish"
   },
   "dependencies": {
