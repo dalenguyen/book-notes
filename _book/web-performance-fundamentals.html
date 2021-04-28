@@ -172,7 +172,7 @@
 <li>People want to start early</li>
 <li>People will wait for value</li>
 </ul>
-<h2 id="maesuring-web-performance">Maesuring Web Performance</h2>
+<h2 id="measuring-web-performance">Measuring Web Performance</h2>
 <ul>
 <li>The new way: <strong>Web Vitals</strong><ul>
 <li>FCP - First Contentful Paint ( &lt; 2.5s ) - The time until the user sees an indication that the page is loading -&gt; <strong>Response Quick</strong></li>
@@ -186,6 +186,37 @@
 <h2 id="where-do-we-measure-from">Where Do We Measure From?</h2>
 <p><a href="https://crux-compare.netlify.app/" target="_blank">Chrome UX Report Compare Tool</a></p>
 <p>Field data is different from Lab data. What you see on your machine will be different from other people on the internet.</p>
+<h2 id="improving-web-performance">Improving Web Performance</h2>
+<p>Performance is where is the money comes from. For short time durations, the difference must be <strong>at least 20%</strong> for most people to care.</p>
+<p>Programmatically retrieves performance data with <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance" target="_blank">Performance API</a></p>
+<pre><code class="lang-bash">// Performance API
+
+performance.getEntries()
+</code></pre>
+<h2 id="capture-performance-data"><a href="https://frontendmasters.com/courses/web-perf/performance-api-practice/" target="_blank">Capture Performance Data</a></h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Wait for page ready and start observe metric</span>
+<span class="hljs-comment">//</span>
+<span class="hljs-comment">// first-contentful-paint (paint)</span>
+<span class="hljs-comment">// largest-contentful-paint</span>
+<span class="hljs-comment">// layout-shift</span>
+<span class="hljs-comment">// first-input</span>
+
+data = {
+  fcp: <span class="hljs-number">0</span>,
+};
+
+<span class="hljs-keyword">var</span> fcpObserver = <span class="hljs-keyword">new</span> PerformanceObserver(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleFCP</span>(<span class="hljs-params">entryList</span>) </span>{
+  <span class="hljs-keyword">var</span> entries = entryList.getEntries() || [];
+  entries.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">entry</span>) </span>{
+    <span class="hljs-keyword">if</span> (entry.name === <span class="hljs-string">&apos;first-contentful-paint&apos;</span>) {
+      data.fcp = entry.startTime;
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Recorded FCP Performance: &apos;</span> + data.fcp);
+    }
+  });
+}).observe({ type: <span class="hljs-string">&apos;paint&apos;</span>, buffered: <span class="hljs-literal">true</span> });
+</code></pre>
+<h2 id="how-to-improve-performance">How to Improve Performance</h2>
+<p>Do fewer things</p>
 
                                 
                                 </section>
@@ -225,7 +256,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Web Performance Fundamentals","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web-performance-fundamentals.md","mtime":"2021-04-23T13:17:54.073Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-23T13:18:03.642Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Web Performance Fundamentals","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"web-performance-fundamentals.md","mtime":"2021-04-28T13:57:02.411Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-28T13:14:21.444Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -233,6 +264,10 @@
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

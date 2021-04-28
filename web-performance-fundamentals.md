@@ -16,7 +16,7 @@ More search ranking & more people visiting your site.
 - People want to start early
 - People will wait for value
 
-## Maesuring Web Performance
+## Measuring Web Performance
 
 - The new way: **Web Vitals**
   - FCP - First Contentful Paint ( < 2.5s ) - The time until the user sees an indication that the page is loading -> **Response Quick**
@@ -31,3 +31,44 @@ Use [Lighthouse](https://developers.google.com/web/tools/lighthouse) from runnin
 [Chrome UX Report Compare Tool](https://crux-compare.netlify.app/)
 
 Field data is different from Lab data. What you see on your machine will be different from other people on the internet.
+
+## Improving Web Performance
+
+Performance is where is the money comes from. For short time durations, the difference must be **at least 20%** for most people to care.
+
+Programmatically retrieves performance data with [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
+
+```bash
+// Performance API
+
+performance.getEntries()
+```
+
+## [Capture Performance Data](https://frontendmasters.com/courses/web-perf/performance-api-practice/)
+
+```javascript
+// Wait for page ready and start observe metric
+//
+// first-contentful-paint (paint)
+// largest-contentful-paint
+// layout-shift
+// first-input
+
+data = {
+  fcp: 0,
+};
+
+var fcpObserver = new PerformanceObserver(function handleFCP(entryList) {
+  var entries = entryList.getEntries() || [];
+  entries.forEach(function (entry) {
+    if (entry.name === 'first-contentful-paint') {
+      data.fcp = entry.startTime;
+      console.log('Recorded FCP Performance: ' + data.fcp);
+    }
+  });
+}).observe({ type: 'paint', buffered: true });
+```
+
+## How to Improve Performance
+
+Do fewer things
