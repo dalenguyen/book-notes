@@ -1,6 +1,6 @@
 {
   "name": "book-notes",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "repository": "https://github.com/dalenguyen/book-notes.git",
   "author": "Dale Nguyen <dungnq@itbox4vn.com>",
